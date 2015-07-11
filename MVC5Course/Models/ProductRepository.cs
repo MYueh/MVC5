@@ -20,6 +20,17 @@ namespace MVC5Course.Models
         {
             return this.All().FirstOrDefault(p => p.ProductId == id);
         }
+
+        public override void Delete(Product entity)
+        {
+            entity.Active = false;
+        }
+
+        public override void Add(Product entity)
+        {
+            base.Add(entity);
+        }
+        
 	}
 
 	public  interface IProductRepository : IRepository<Product>

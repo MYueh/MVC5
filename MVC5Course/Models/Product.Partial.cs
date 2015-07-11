@@ -6,8 +6,20 @@ namespace MVC5Course.Models
     using System.ComponentModel.DataAnnotations;
     
     [MetadataType(typeof(ProductMetaData))]
-    public partial class Product
+    public partial class Product : IValidatableObject
     {
+        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
+        {
+            using (var db = new FabricsEntities())
+            {
+                if (db.Client.Find(1).City == "Taipei")
+                {
+
+                }
+            }
+
+            yield break;
+        }
     }
     
     public partial class ProductMetaData
