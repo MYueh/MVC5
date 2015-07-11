@@ -30,5 +30,7 @@ namespace MVC5Course.Models
         public virtual DbSet<Order> Order { get; set; }
         public virtual DbSet<OrderLine> OrderLine { get; set; }
         public virtual DbSet<Product> Product { get; set; }
+        public virtual DbSet<vwClientSummary> vwClientSummary { get; set; }
+        public virtual DbSet<vwClientOrder> vwClientOrder { get; set; }
     }
 }

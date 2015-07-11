@@ -11,8 +11,6 @@ namespace MVC5Course.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel;
-    using System.ComponentModel.DataAnnotations;
     
     public partial class Product
     {
@@ -23,19 +21,9 @@ namespace MVC5Course.Models
         }
     
         public int ProductId { get; set; }
-
-        //[StringLength(20)]
-        //[MinLength(5)]
-        [Required(ErrorMessage="產品名稱必填")]
-        [DisplayName("產品名稱")]
         public string ProductName { get; set; }
-        [Required]
-        [DisplayName("商品價格")]
-        [DisplayFormat(DataFormatString="{0:C}")]
         public Nullable<decimal> Price { get; set; }
         public Nullable<bool> Active { get; set; }
-        [Required]
-        [DisplayName("庫存量")]
         public Nullable<decimal> Stock { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

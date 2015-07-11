@@ -212,6 +212,12 @@
     <Compile Include="Models\Product.cs">
       <DependentUpon>Fabrics.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\vwClientOrder.cs">
+      <DependentUpon>Fabrics.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\vwClientSummary.cs">
+      <DependentUpon>Fabrics.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -299,6 +305,8 @@
     <Content Include="Views\EF\RemoveProduct.cshtml" />
     <Content Include="Views\EF\BatchRemoveClient.cshtml" />
     <Content Include="Views\EF\BatchUpdateClient.cshtml" />
+    <Content Include="Views\EF\vwClientOrder.cshtml" />
+    <Content Include="Views\EF\vwClientSummary.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

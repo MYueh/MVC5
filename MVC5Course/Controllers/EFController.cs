@@ -111,6 +111,19 @@ namespace MVC5Course.Controllers
             return View(data);
         }
 
+        public ActionResult vwClientSummary()
+        {
+            var data = db.vwClientSummary.ToList();
+
+            return View(data);
+        }
+
+        // 此為錯誤示範
+        public ActionResult vwClientOrder()
+        {
+            return View(db.vwClientOrder.OrderBy(p => p.ClientId).Take(5));
+        }
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)
