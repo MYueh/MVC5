@@ -6,6 +6,11 @@
 
 <h2>RemoveClient</h2>
 
+<p>
+    @Html.ActionLink("批次更新前五筆 Client 的 City 欄位", "BatchUpdateClient")
+    |
+    @Html.ActionLink("批次刪除前五筆 Client 資料", "BatchRemoveClient")
+</p>
 <table class="table">
     <tr>
         <th>
@@ -24,9 +29,8 @@
             @Html.DisplayNameFor(model => model.DateOfBirth)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.CreditRating)
+            @Html.DisplayNameFor(model => model.City)
         </th>
-        <th></th>
     </tr>
 
 @foreach (var item in Model) {
@@ -47,12 +51,7 @@
             @Html.DisplayFor(modelItem => item.DateOfBirth)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.CreditRating)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ClientId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ClientId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ClientId })
+            @Html.DisplayFor(modelItem => item.City)
         </td>
     </tr>
 }

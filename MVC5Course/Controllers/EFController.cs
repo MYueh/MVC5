@@ -27,7 +27,8 @@ namespace MVC5Course.Controllers
 
             #region Option 2
 
-            var data = db.Product.Where(p => p.ProductId > 1500);
+            //var data = db.Product.Where(p => p.ProductId > 1500);
+            var data = db.Product.Take(5);
 
             return View(data);
 
@@ -69,7 +70,7 @@ namespace MVC5Course.Controllers
             return View(prod);
         }
 
-        public ActionResult RemoveClient()
+        public ActionResult BatchRemoveClient()
         {
             var data = db.Client.Take(5);
 
@@ -91,9 +92,24 @@ namespace MVC5Course.Controllers
 
             db.SaveChanges();
 
+            // 此時的 data 將會重新進資料庫查詢五筆資料出來
+            // 因為此時的 data 還是 IQueryable<Client> 型別
             return View(data);
         }
 
+        public ActionResult BatchUpdateClient()
+        {
+            var data = db.Client.Take(5);
+
+            foreach (var item in data)
+            {
+                item.City = "Taipei";
+            }
+
+            db.SaveChanges();
+
+            return View(data);
+        }
 
         protected override void Dispose(bool disposing)
         {
