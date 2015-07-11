@@ -24,8 +24,8 @@ namespace MVC5Course.Models
     
         public int ProductId { get; set; }
 
-        [StringLength(20)]
-        [MinLength(5)]
+        //[StringLength(20)]
+        //[MinLength(5)]
         [Required(ErrorMessage="產品名稱必填")]
         [DisplayName("產品名稱")]
         public string ProductName { get; set; }
