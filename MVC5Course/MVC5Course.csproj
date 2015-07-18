@@ -171,6 +171,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\ARController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\DefaultController.cs" />
     <Compile Include="Controllers\EFController.cs" />
@@ -389,6 +390,9 @@
     <Content Include="Views\EF\BatchUpdateClient.cshtml" />
     <Content Include="Views\EF\vwClientOrder.cshtml" />
     <Content Include="Views\EF\vwClientSummary.cshtml" />
+    <Content Include="Views\AR\Index.cshtml" />
+    <Content Include="Views\Shared\MyPartial.cshtml" />
+    <Content Include="Views\AR\MyPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
