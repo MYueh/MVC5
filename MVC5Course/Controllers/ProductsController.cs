@@ -26,11 +26,9 @@ namespace MVC5Course.Controllers
         }
 
         [HttpPost]
-        public ActionResult Index(FormCollection form)
+        public ActionResult Index(List<UpdateStockVM> data)
         {
-            var data = new List<UpdateStockVM>();
-
-            if (TryUpdateModel<List<UpdateStockVM>>(data, "data"))
+            if (ModelState.IsValid)
             {
                 foreach (var item in data)
                 {
@@ -47,7 +45,6 @@ namespace MVC5Course.Controllers
 
             return View(repo.取得前五筆產品資料().ToList());
         }
-
 
         // GET: Products/Details/5
         public ActionResult Details(int? id)
