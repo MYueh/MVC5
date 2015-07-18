@@ -12,7 +12,9 @@ namespace MVC5Course.Controllers
         {
             string str = "Hello, World";
 
-            return View((object)str);
+            ViewData.Model = str;
+
+            return View();
         }
 
         public ActionResult PartialViewTest()
@@ -33,6 +35,8 @@ namespace MVC5Course.Controllers
         {
             ViewBag.msg = "新增成功";
 
+            ViewData["msg"] = "新增成功";
+
             return View("AlertRedirect");
         }
 
@@ -48,6 +52,11 @@ namespace MVC5Course.Controllers
             var data = db.Product.Take(5);
 
             return Json(data, JsonRequestBehavior.AllowGet);
+        }
+
+        public ActionResult RedirectTest()
+        {
+            return RedirectToAction("Index", "Home");
         }
     }
 }
