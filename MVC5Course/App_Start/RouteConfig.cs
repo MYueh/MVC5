@@ -27,6 +27,11 @@ namespace MVC5Course
                     controller = "Home",
                     action = "Index",
                     id = UrlParameter.Optional
+                },
+                constraints: new
+                {
+                    controller = "Products",
+                    id = @"\d+"
                 }
             );
 
@@ -41,6 +46,10 @@ namespace MVC5Course
                     controller = "Home",
                     action = "Index",
                     id = UrlParameter.Optional
+                },
+                constraints: new
+                {
+                    controller = @"Prod.*"
                 }
             );
 
