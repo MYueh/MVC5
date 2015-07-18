@@ -17,3 +17,17 @@
 <h3>載入圖片</h3>
 
 <a href="/AR/FileTest"><img src="/AR/FileTest" alt="" /></a>
+
+<hr />  
+
+<h3>載入 Json 資料</h3>
+
+<button onclick="load()">載入資料</button>
+
+<script>
+    function load() {
+        $.getJSON("/AR/JsonTest", function (data) {
+            console.log(data);
+        });
+    }
+</script>

@@ -40,5 +40,14 @@ namespace MVC5Course.Controllers
         {
             return File(Server.MapPath("~/Content/hqdefault.jpg"), "image/jpeg", "泛舟哥.jpg");
         }
+
+        public ActionResult JsonTest()
+        {
+            db.Configuration.LazyLoadingEnabled = false;
+
+            var data = db.Product.Take(5);
+
+            return Json(data, JsonRequestBehavior.AllowGet);
+        }
     }
 }
