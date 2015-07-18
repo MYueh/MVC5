@@ -177,6 +177,7 @@
     <Compile Include="Controllers\EFController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\MBController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -269,6 +270,7 @@
     <Compile Include="Models\RepositoryIQueryableExtensions.cs">
       <DependentUpon>IRepository.EF6.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\SampleVM.cs" />
     <Compile Include="Models\usp_Fabrics_Result.cs">
       <DependentUpon>Fabrics.tt</DependentUpon>
     </Compile>
@@ -395,6 +397,9 @@
     <Content Include="Views\Shared\MyPartial.cshtml" />
     <Content Include="Views\AR\MyPartial.cshtml" />
     <Content Include="Views\AR\AlertRedirect.cshtml" />
+    <Content Include="Views\MB\Index.cshtml" />
+    <Content Include="Views\MB\IndexList.cshtml" />
+    <Content Include="Views\MB\IndexResult.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
