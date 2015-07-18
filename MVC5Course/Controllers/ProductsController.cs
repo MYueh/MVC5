@@ -26,17 +26,28 @@ namespace MVC5Course.Controllers
         }
 
         [HttpPost]
-        public ActionResult Index(UpdateStockVM[] data)
+        public ActionResult Index(FormCollection form)
         {
-            foreach (var item in data)
+            var data = new List<UpdateStockVM>();
+
+            if (TryUpdateModel<List<UpdateStockVM>>(data, "data"))
             {
-                db.Product.Find(item.ProductId).Stock = item.Stock;
+                foreach (var item in data)
+                {
+                    db.Product.Find(item.ProductId).Stock = item.Stock;
+                }
+
+                db.SaveChanges();
+
+                return RedirectToAction("Index");
             }
 
-            db.SaveChanges();
+            //ModelState.Remove("data[0].Stock");
+            //ModelState.Clear();
 
-            return RedirectToAction("Index");
+            return View(repo.取得前五筆產品資料().ToList());
         }
+
 
         // GET: Products/Details/5
         public ActionResult Details(int? id)

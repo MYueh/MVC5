@@ -44,6 +44,7 @@
         </td>
         <td>
             @Html.EditorFor(modelItem => data[i].Stock)
+            @Html.ValidationMessageFor(modelItem => data[i].Stock, "", new { @class = "text-danger" })
         </td>
         <td>
             @Html.HiddenFor(modelItem => data[i].ProductId)
@@ -69,3 +70,7 @@
 
     
 }
+
+@*@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}*@
