@@ -25,6 +25,19 @@ namespace MVC5Course.Controllers
             return View(data);
         }
 
+        [HttpPost]
+        public ActionResult Index(UpdateStockVM[] data)
+        {
+            foreach (var item in data)
+            {
+                db.Product.Find(item.ProductId).Stock = item.Stock;
+            }
+
+            db.SaveChanges();
+
+            return RedirectToAction("Index");
+        }
+
         // GET: Products/Details/5
         public ActionResult Details(int? id)
         {

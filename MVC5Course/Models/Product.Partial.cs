@@ -12,10 +12,10 @@ namespace MVC5Course.Models
         {
             using (var db = new FabricsEntities())
             {
-                if (db.Client.Find(1).City == "Taipei")
-                {
+                //if (db.Client.Find(1).City == "Taipei")
+                //{
 
-                }
+                //}
             }
 
             yield break;

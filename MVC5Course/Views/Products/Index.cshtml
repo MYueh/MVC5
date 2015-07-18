@@ -9,6 +9,11 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
+
+@using (Html.BeginForm())
+{
+    
+
 <table class="table">
     <tr>
         <th>
@@ -22,8 +27,14 @@
         </th>
         <th></th>
     </tr>
+    @{
+        var data = Model.ToArray();
+    }
 
-@foreach (var item in Model) {
+@for (int i = 0; i < data.Length; i++)
+{
+    var item = data[i];
+    
     <tr>
         <td>
             @Html.DisplayFor(modelItem => item.ProductName)
@@ -32,9 +43,11 @@
             @Html.DisplayFor(modelItem => item.Price)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Stock)
+            @Html.EditorFor(modelItem => data[i].Stock)
         </td>
         <td>
+            @Html.HiddenFor(modelItem => data[i].ProductId)
+
             @Html.ActionLink("Edit", "Edit", new { id=item.ProductId }) |
             @Html.ActionLink("Details", "Details", new { id=item.ProductId }) |
             @Html.ActionLink("Delete", "Delete", new { id=item.ProductId })
@@ -42,4 +55,17 @@
     </tr>
 }
 
+    <tr>
+        <th>
+        </th>
+        <th>
+        </th>
+        <th>
+            <button type="submit">批次更新</button>
+        </th>
+        <th></th>
+    </tr>
 </table>
+
+    
+}

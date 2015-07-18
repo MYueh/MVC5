@@ -271,6 +271,7 @@
       <DependentUpon>IRepository.EF6.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\SampleVM.cs" />
+    <Compile Include="Models\UpdateStockVM.cs" />
     <Compile Include="Models\usp_Fabrics_Result.cs">
       <DependentUpon>Fabrics.tt</DependentUpon>
     </Compile>
