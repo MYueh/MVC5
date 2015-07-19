@@ -40,5 +40,10 @@ namespace MVC5Course.Controllers
         {
             return View();
         }
+
+        public ActionResult NewLayout()
+        {
+            return View();
+        }
     }
 }
