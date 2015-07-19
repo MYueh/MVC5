@@ -47,7 +47,7 @@
 
 <hr />
 
-@Html.Action("List", "OrderLines", new { id = Model.ProductId })
+@Html.Partial("OrderLineList", Model.OrderLine.ToList())
 
 
 <p>
