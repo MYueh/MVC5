@@ -7,16 +7,21 @@ using System.Web.Mvc;
 
 namespace MVC5Course.Controllers
 {
-    public class AFController : Controller
+    public class AFController : BaseController
     {
-
-        [MyFilter]
+        [取得共用的ViewBag資料]
         public ActionResult Index()
         {
             System.IO.File.AppendAllText(@"G:\MyFilter.log", "#2 AFController.Index()\n");
 
-            throw new Exception("Index failed");
+            //throw new Exception("Index failed");
 
+            return View();
+        }
+
+        [取得共用的ViewBag資料]
+        public ActionResult Page1()
+        {
             return View();
         }
     }

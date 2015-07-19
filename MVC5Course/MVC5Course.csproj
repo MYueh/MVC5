@@ -403,6 +403,8 @@
     <Content Include="Views\MB\Index.cshtml" />
     <Content Include="Views\MB\IndexList.cshtml" />
     <Content Include="Views\MB\IndexResult.cshtml" />
+    <Content Include="Views\AF\Page1.cshtml" />
+    <Content Include="Views\AF\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
@@ -416,7 +418,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\AF\" />
     <Folder Include="Views\Base\" />
   </ItemGroup>
   <PropertyGroup>
