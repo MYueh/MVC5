@@ -13,9 +13,9 @@ namespace MVC5Course.Controllers
         [MyFilter]
         public ActionResult Index()
         {
-            System.IO.File.AppendAllText(@"G:\MyFilter.log", "#2\n");
+            System.IO.File.AppendAllText(@"G:\MyFilter.log", "#2 AFController.Index()\n");
 
-            return Content("Done");
+            return View();
         }
     }
 }
