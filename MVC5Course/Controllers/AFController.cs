@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.UI;
 
 namespace MVC5Course.Controllers
 {
@@ -21,6 +22,17 @@ namespace MVC5Course.Controllers
 
         [取得共用的ViewBag資料]
         public ActionResult Page1()
+        {
+            return View();
+        }
+
+        [Authorize]
+#if !DEBUG
+        [RequireHttps]
+#endif
+        //[OutputCache(Duration = 60, Location = OutputCacheLocation.Server)]
+        //[OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
+        public ActionResult Page2()
         {
             return View();
         }

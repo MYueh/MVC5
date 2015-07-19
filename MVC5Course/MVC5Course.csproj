@@ -405,6 +405,7 @@
     <Content Include="Views\MB\IndexResult.cshtml" />
     <Content Include="Views\AF\Page1.cshtml" />
     <Content Include="Views\AF\Index.cshtml" />
+    <Content Include="Views\AF\Page2.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
