@@ -55,7 +55,14 @@ namespace MVC5Course.Controllers
             }
             //Product product = db.Product.Find(id);
             //Product product = repo.All().Where(p => p.ProductId == id.Value).First();
+            
+            
             Product product = repo.Find(id.Value);
+
+
+            //ViewBag.OrderLines = product.OrderLine.ToList();
+
+
             if (product == null)
             {
                 return HttpNotFound();
