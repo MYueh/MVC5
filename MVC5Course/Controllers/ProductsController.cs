@@ -111,6 +111,7 @@ namespace MVC5Course.Controllers
         // 詳細資訊，請參閱 http://go.microsoft.com/fwlink/?LinkId=317598。
         [HttpPost]
         [ValidateAntiForgeryToken]
+        //[ValidateInput(false)]
         public ActionResult Edit(int ProductId, FormCollection form)
         {
             var product = repo.Find(ProductId);

@@ -181,6 +181,7 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MBController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
+    <Compile Include="Controllers\VTController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -406,6 +407,9 @@
     <Content Include="Views\AF\Page1.cshtml" />
     <Content Include="Views\AF\Index.cshtml" />
     <Content Include="Views\AF\Page2.cshtml" />
+    <Content Include="Views\Shared\Error2.cshtml" />
+    <Content Include="Views\Home\Error.cshtml" />
+    <Content Include="Views\VT\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

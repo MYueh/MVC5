@@ -18,9 +18,13 @@ namespace MVC5Course.Controllers
             return PartialView("MyPartial");
         }
 
+        [HandleError(View = "Error", ExceptionType = typeof(Exception))]
+        [HandleError(View = "Error2", ExceptionType = typeof(ArgumentException))]
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
+
+            throw new ArgumentException("發生錯誤");
 
             return View();
         }
