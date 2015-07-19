@@ -1,14 +1,18 @@
-﻿@model MVC5Course.Models.Product
+﻿@model Product
 
 @{
     ViewBag.Title = "Edit";
+    
 }
 
 <h2>Edit</h2>
 
-<div>
-    @ViewBag.any
-</div>
+@if (User.Identity.IsAuthenticated)
+{
+    <div>
+        @ViewBag.any
+    </div>
+}
 
 @using (Html.BeginForm())
 {
