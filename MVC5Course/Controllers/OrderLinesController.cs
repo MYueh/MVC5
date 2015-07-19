@@ -14,7 +14,7 @@ namespace MVC5Course.Controllers
     {
         private FabricsEntities db = new FabricsEntities();
 
-        // GET: OrderLines
+        [ChildActionOnly]
         public ActionResult List(int id)
         {
             var orderLine = db.OrderLine

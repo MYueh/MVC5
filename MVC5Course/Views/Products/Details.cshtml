@@ -50,27 +50,6 @@
 @Html.Action("List", "OrderLines", new { id = Model.ProductId })
 
 
-
-
-@*<table class="table">
-    <tr>
-        <td>OrderId</td>
-        <td>LineNumber</td>
-        <td>Qty</td>
-        <td>LineTotal</td>
-    </tr>
-    @foreach (var item in (List<OrderLine>)ViewBag.OrderLines)
-    {
-    <tr>
-        <td>@item.OrderId</td>
-        <td>@item.LineNumber</td>
-        <td>@item.Qty</td>
-        <td>@item.LineTotal</td>
-    </tr>
-    }
-</table>*@
-
-
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.ProductId }) |
     @Html.ActionLink("Back to List", "Index")

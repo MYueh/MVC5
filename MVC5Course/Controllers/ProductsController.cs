@@ -59,10 +59,6 @@ namespace MVC5Course.Controllers
             
             Product product = repo.Find(id.Value);
 
-
-            //ViewBag.OrderLines = product.OrderLine.ToList();
-
-
             if (product == null)
             {
                 return HttpNotFound();
