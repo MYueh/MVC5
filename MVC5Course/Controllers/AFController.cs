@@ -15,6 +15,8 @@ namespace MVC5Course.Controllers
         {
             System.IO.File.AppendAllText(@"G:\MyFilter.log", "#2 AFController.Index()\n");
 
+            throw new Exception("Index failed");
+
             return View();
         }
     }

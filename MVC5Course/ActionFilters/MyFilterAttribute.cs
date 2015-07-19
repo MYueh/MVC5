@@ -7,7 +7,7 @@ using System.Web.Mvc;
 
 namespace MVC5Course.ActionFilters
 {
-    public class MyFilterAttribute : ActionFilterAttribute
+    public class MyFilterAttribute : ActionFilterAttribute, IExceptionFilter
     {
         public override void OnActionExecuting(ActionExecutingContext filterContext)
         {
@@ -34,6 +34,11 @@ namespace MVC5Course.ActionFilters
             File.AppendAllText(@"G:\MyFilter.log", "#6 OnResultExecuted\n");
 
             base.OnResultExecuted(filterContext);
+        }
+
+        public void OnException(ExceptionContext filterContext)
+        {
+            File.AppendAllText(@"G:\MyFilter.log", "#7 OnException\n");
         }
     }
 }
