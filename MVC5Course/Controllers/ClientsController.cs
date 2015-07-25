@@ -16,13 +16,20 @@ namespace MVC5Course.Controllers
         private FabricsEntities db = new FabricsEntities();
 
         // GET: Clients
-        public ActionResult Index(int p = 1)
+        public ActionResult Index(string keyword, int p = 1)
         {
             // Step 1
-            var client = db.Client.Include(c => c.Occupation).OrderBy(s => s.ClientId);
+            var client = db.Client.Include(c => c.Occupation);
+
+            if (keyword != null)
+            {
+                client = client.Where(s => s.FirstName.Contains(keyword));
+            }
+
+            var orderedClient = client.OrderBy(s => s.ClientId);
 
             // Step 2
-            var data = client.ToPagedList(p, 10);
+            var data = orderedClient.ToPagedList(p, 10);
 
             // Step 3
             return View(data);
