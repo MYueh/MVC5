@@ -54,6 +54,7 @@
         <td>
             @Html.HiddenFor(modelItem => data[i].ProductId)
 
+            @Ajax.ActionLink("AJAX-Details", "Details", new { id = item.ProductId }, new AjaxOptions() { UpdateTargetId="details" }) |
             @Html.ActionLink("Edit", "Edit", new { id=item.ProductId }) |
             @Html.ActionLink("Details", "Details", new { id=item.ProductId }) |
             @Html.ActionLink("Delete", "Delete", new { id=item.ProductId })
@@ -73,8 +74,13 @@
     </tr>
 </table>
 
-    
 }
+
+
+<div id="details">
+
+</div>
+
 
 @*@section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
