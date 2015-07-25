@@ -1,0 +1,14 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>@@Ajax 測試</h2>
+<hr />
+
+@Ajax.ActionLink("取得時間", "GetTime", new AjaxOptions() { UpdateTargetId = "result" })
+
+<p id="result" style="background-color: yellow">
+    N/A
+</p>
+
