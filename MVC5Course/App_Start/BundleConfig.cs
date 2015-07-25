@@ -8,13 +8,13 @@ namespace MVC5Course
         // 如需「搭配」的詳細資訊，請瀏覽 http://go.microsoft.com/fwlink/?LinkId=301862
         public static void RegisterBundles(BundleCollection bundles)
         {
-            //bundles.IgnoreList.Clear();
+            //bundles.DirectoryFilter.Clear();
 
-            //bundles.IgnoreList.Ignore("*.intellisense.js");
-            //bundles.IgnoreList.Ignore("*-vsdoc.js");
-            //bundles.IgnoreList.Ignore("*.debug.js", OptimizationMode.WhenEnabled);
-            //// bundles.IgnoreList.Ignore("*.min.js", OptimizationMode.WhenDisabled);
-            //// bundles.IgnoreList.Ignore("*.min.css", OptimizationMode.WhenDisabled);
+            //bundles.DirectoryFilter.Ignore("*.intellisense.js");
+            //bundles.DirectoryFilter.Ignore("*-vsdoc.js");
+            //bundles.DirectoryFilter.Ignore("*.debug.js", OptimizationMode.WhenEnabled);
+            //// bundles.DirectoryFilter.Ignore("*.min.js", OptimizationMode.WhenDisabled);
+            //// bundles.DirectoryFilter.Ignore("*.min.css", OptimizationMode.WhenDisabled);
 
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/jquery-{version}.js",
@@ -37,7 +37,7 @@ namespace MVC5Course
                       "~/Content/site.css",
                       "~/Content/PagedList.css"));
 
-            
+
             bundles.Add(new ScriptBundle("~/bundles/newlayout-jquery").Include(
                         "~/js/jquery-1.9.1.min.js",
                         "~/js/jquery-migrate-1.0.0.min.js",
