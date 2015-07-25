@@ -11,6 +11,7 @@
 <div style="float: right">
 @using (Html.BeginForm("Index", "Clients", FormMethod.Get))
 {
+    @Html.DropDownList("GenderFilter")
     @Html.TextBox("keyword", null, new { placeholder = "搜尋關鍵字" })
     <button type="submit">搜尋</button>
 }
@@ -76,4 +77,4 @@
 }
 
 @Html.PagedListPager(data, 
-    (pageNo) => Url.Action("Index", new { p = pageNo, keyword = Html.Value("keyword")}))
+    (pageNo) => Url.Action("Index", new { p = pageNo, GenderFilter = Html.Value("GenderFilter"), keyword = Html.Value("keyword")}))

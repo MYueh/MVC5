@@ -16,14 +16,24 @@ namespace MVC5Course.Controllers
         private FabricsEntities db = new FabricsEntities();
 
         // GET: Clients
-        public ActionResult Index(string keyword, int p = 1)
+        public ActionResult Index(string keyword, string GenderFilter, int p = 1)
         {
+            var listGenders = new List<SelectListItem>();
+            listGenders.Add(new SelectListItem() { Value = "M", Text = "男生" });
+            listGenders.Add(new SelectListItem() { Value = "F", Text = "女生" });
+            ViewData["GenderFilter"] = new SelectList(listGenders, "Value", "Text");
+
             // Step 1
             var client = db.Client.Include(c => c.Occupation);
 
             if (keyword != null)
             {
                 client = client.Where(s => s.FirstName.Contains(keyword));
+            }
+
+            if (GenderFilter != null)
+            {
+                client = client.Where(s => s.Gender == GenderFilter);
             }
 
             var orderedClient = client.OrderBy(s => s.ClientId);
