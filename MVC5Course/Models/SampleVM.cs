@@ -12,5 +12,7 @@ namespace MVC5Course.Models
         public string Name { get; set; }
         [Required]
         public string Title { get; set; }
+
+        public int Level { get; set; }
     }
 }
