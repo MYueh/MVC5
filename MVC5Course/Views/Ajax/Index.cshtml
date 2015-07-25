@@ -6,9 +6,32 @@
 <h2>@@Ajax 測試</h2>
 <hr />
 
-@Ajax.ActionLink("取得時間", "GetTime", new AjaxOptions() { UpdateTargetId = "result" })
+@Ajax.ActionLink("取得時間", "GetTime", new AjaxOptions() {
+    UpdateTargetId = "result",
+    Confirm = "你確定嗎？",
+    HttpMethod = "Post",
+    InsertionMode = InsertionMode.Replace,
+    LoadingElementId = "loading"
+})
 
+<div id="loading" style="display: none">
+    <img src="http://www.ajaxload.info/cache/FF/FF/FF/00/00/00/39-0.gif" alt="載入中 ..." />
+</div>
 <p id="result" style="background-color: yellow">
     N/A
 </p>
 
+<hr />
+
+@Ajax.ActionLink("取得 JSON", "JsonTest", "AR", new AjaxOptions()
+{
+    OnSuccess = "GetJsonOK"
+})
+
+<script>
+    function GetJsonOK(data) {
+
+        console.log(data);
+
+    }
+</script>
