@@ -27,9 +27,7 @@ namespace MVC5Course.Controllers
 
 
             ViewData["LevelOptions"] = new SelectList(db.Occupation.ToList(),
-                "OccupationId", "OccupationName");
-
-            ViewData["Level"] = 1;
+                "OccupationId", "OccupationName", 1);
 
             return View(dt);
         }
