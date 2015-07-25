@@ -3,7 +3,7 @@ namespace MVC5Course.Models
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
-    
+
     [MetadataType(typeof(ClientMetaData))]
     public partial class Client
     {

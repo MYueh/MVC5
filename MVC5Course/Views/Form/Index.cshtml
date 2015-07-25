@@ -33,7 +33,9 @@
         <div class="form-group">
             @Html.Label("Level", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownList("Level", ViewData["LevelOptions"] as SelectList, "--請選擇--", htmlAttributes: new { @class = "form-control" })
+                
+                @Html.Editor("Level")
+
                 @Html.ValidationMessageFor(model => model.Level, "", new { @class = "text-danger" })
             </div>
         </div>
