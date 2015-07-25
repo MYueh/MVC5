@@ -11,7 +11,7 @@
 <div style="float: right">
 @using (Html.BeginForm("Index", "Clients", FormMethod.Get))
 {
-    @Html.DropDownList("GenderFilter")
+    @Html.DropDownList("GenderFilter", ViewData["GenderFilter"] as SelectList, new { onchange = "this.form.submit();" })
     @Html.TextBox("keyword", null, new { placeholder = "搜尋關鍵字" })
     <button type="submit">搜尋</button>
 }

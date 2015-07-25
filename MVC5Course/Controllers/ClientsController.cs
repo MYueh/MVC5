@@ -18,6 +18,12 @@ namespace MVC5Course.Controllers
         // GET: Clients
         public ActionResult Index(string keyword, string GenderFilter, int p = 1)
         {
+            if (Session["LastClientIndexUrl"] != null)
+            {
+                var url = Session["LastClientIndexUrl"].ToString();
+                Session.Remove("LastClientIndexUrl");
+                return Redirect(url);
+            }
             var listGenders = new List<SelectListItem>();
             listGenders.Add(new SelectListItem() { Value = "M", Text = "男生" });
             listGenders.Add(new SelectListItem() { Value = "F", Text = "女生" });
@@ -88,6 +94,11 @@ namespace MVC5Course.Controllers
         // GET: Clients/Edit/5
         public ActionResult Edit(int? id)
         {
+            if (Request.UrlReferrer.ToString().Contains("/Clients/Index"))
+            {
+                Session["LastClientIndexUrl"] = Request.UrlReferrer;
+            }
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
