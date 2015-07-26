@@ -2,6 +2,8 @@
 <#@ output extension=".cshtml" #>
 <#@ include file="Imports.include.t4" #>
 @model IEnumerable<#= "<" + ViewDataTypeName + ">" #>
+@using PagedList
+@using PagedList.Mvc
 <#
 // The following chained if-statement outputs the file header code and markup for a partial view, a view using a layout page, or a regular view.
 if(IsPartialView) {
@@ -114,6 +116,13 @@ if (pkName != null) {
 }
 
 </table>
+
+@{
+    var data = Model as IPagedList;
+}
+
+@Html.PagedListPager(data, p => Url.Action("Index", new { p = p }))
+
 <#
 // The following code closes the tag used in the case of a view using a layout page and the body and html tags in the case of a regular view page
 #>

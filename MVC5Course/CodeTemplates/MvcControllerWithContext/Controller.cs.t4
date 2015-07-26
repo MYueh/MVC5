@@ -46,6 +46,7 @@ using System.Web.Mvc;
 <# foreach (var namespaceName in RequiredNamespaces) { #>
 using <#= namespaceName #>;
 <# } #>
+using PagedList;
 
 namespace <#= Namespace #>
 {
@@ -79,7 +80,7 @@ namespace <#= Namespace #>
 <# if (UseAsync) { #>
         public async Task<ActionResult> Index()
 <# } else { #>
-        public ActionResult Index()
+        public ActionResult Index(int p = 1)
 <# } #>
         {
 <#  var includeExpressions = "";
@@ -90,13 +91,13 @@ namespace <#= Namespace #>
 <#		if (UseAsync) { #>
             return View(await <#= entitySetVar #>.ToListAsync());
 <#		} else { #>
-            return View(<#= entitySetVar #>.ToList());
+            return View(<#= entitySetVar #>.OrderBy(s => s.<#= primaryKeyName #>).ToPagedList(p, 10));
 <#		} #>
 <# } else { #>
 <#		if (UseAsync) { #>
             return View(await db.<#= entitySetName #><#= includeExpressions #>.ToListAsync());
 <#		} else { #>
-            return View(db.<#= entitySetName #><#= includeExpressions #>.ToList());
+            return View(db.<#= entitySetName #><#= includeExpressions #>.OrderBy(s => s.<#= primaryKeyName #>).ToPagedList(p, 10));
 <#		} #>
 <# } #>
         }
