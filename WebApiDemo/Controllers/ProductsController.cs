@@ -22,6 +22,10 @@ namespace WebApiDemo.Controllers
         }
 
         // GET: api/Products
+        /// <summary>
+        /// 取得所有產品 (前五筆)
+        /// </summary>
+        /// <returns></returns>
         public IQueryable<Product> GetProduct()
         {
             return db.Product.Include("OrderLine").Take(5);
@@ -31,7 +35,7 @@ namespace WebApiDemo.Controllers
         [ResponseType(typeof(Product))]
         public IHttpActionResult GetProduct(int id)
         {
-            Product product = db.Product.Find(id);
+            Product product = db.Product.Include("OrderLine").FirstOrDefault(p => p.ProductId == id);
             if (product == null)
             {
                 return NotFound();

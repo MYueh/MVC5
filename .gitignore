@@ -188,3 +188,4 @@ GeneratedArtifacts/
 _Pvt_Extensions/
 ModelManifest.xml
 /.vs/config/applicationhost.config
+/WebApiDemo/App_Data/XmlDocument.xml
