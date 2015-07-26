@@ -192,6 +192,7 @@
     <Compile Include="Controllers\MBController.cs" />
     <Compile Include="Controllers\OccupationsController.cs" />
     <Compile Include="Controllers\OrderLinesController.cs" />
+    <Compile Include="Controllers\OrdersController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="Controllers\VTController.cs" />
     <Compile Include="Global.asax.cs">
@@ -693,6 +694,11 @@
     <Content Include="Views\Occupations\Details.cshtml" />
     <Content Include="Views\Occupations\Edit.cshtml" />
     <Content Include="Views\Occupations\Index.cshtml" />
+    <Content Include="Views\Orders\Create.cshtml" />
+    <Content Include="Views\Orders\Delete.cshtml" />
+    <Content Include="Views\Orders\Details.cshtml" />
+    <Content Include="Views\Orders\Edit.cshtml" />
+    <Content Include="Views\Orders\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
