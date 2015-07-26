@@ -1,0 +1,26 @@
+﻿@model MVC5Course.Models.Occupation
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Occupation</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.OccupationName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OccupationName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.OccupationId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

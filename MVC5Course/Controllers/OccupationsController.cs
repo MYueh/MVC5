@@ -10,112 +10,107 @@ using MVC5Course.Models;
 
 namespace MVC5Course.Controllers
 {
-    public class OrdersController : Controller
+    public class OccupationsController : Controller
     {
         private FabricsEntities db = new FabricsEntities();
 
-        // GET: Orders
+        // GET: Occupations
         public ActionResult Index()
         {
-            var order = db.Order.Include(o => o.Client);
-            return View(order.ToList());
+            return View(db.Occupation.ToList());
         }
 
-        // GET: Orders/Details/5
+        // GET: Occupations/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Order order = db.Order.Find(id);
-            if (order == null)
+            Occupation occupation = db.Occupation.Find(id);
+            if (occupation == null)
             {
                 return HttpNotFound();
             }
-            return View(order);
+            return View(occupation);
         }
 
-        // GET: Orders/Create
+        // GET: Occupations/Create
         public ActionResult Create()
         {
-            ViewBag.ClientId = new SelectList(db.Client, "ClientId", "FirstName");
             return View();
         }
 
-        // POST: Orders/Create
+        // POST: Occupations/Create
         // 若要免於過量張貼攻擊，請啟用想要繫結的特定屬性，如需
         // 詳細資訊，請參閱 http://go.microsoft.com/fwlink/?LinkId=317598。
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "OrderId,ClientId,OrderDate,OrderTotal,OrderStatus")] Order order)
+        public ActionResult Create([Bind(Include = "OccupationId,OccupationName")] Occupation occupation)
         {
             if (ModelState.IsValid)
             {
-                db.Order.Add(order);
+                db.Occupation.Add(occupation);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.ClientId = new SelectList(db.Client, "ClientId", "FirstName", order.ClientId);
-            return View(order);
+            return View(occupation);
         }
 
-        // GET: Orders/Edit/5
+        // GET: Occupations/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Order order = db.Order.Find(id);
-            if (order == null)
+            Occupation occupation = db.Occupation.Find(id);
+            if (occupation == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.ClientId = new SelectList(db.Client, "ClientId", "FirstName", order.ClientId);
-            return View(order);
+            return View(occupation);
         }
 
-        // POST: Orders/Edit/5
+        // POST: Occupations/Edit/5
         // 若要免於過量張貼攻擊，請啟用想要繫結的特定屬性，如需
         // 詳細資訊，請參閱 http://go.microsoft.com/fwlink/?LinkId=317598。
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "OrderId,ClientId,OrderDate,OrderTotal,OrderStatus")] Order order)
+        public ActionResult Edit([Bind(Include = "OccupationId,OccupationName")] Occupation occupation)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(order).State = EntityState.Modified;
+                db.Entry(occupation).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.ClientId = new SelectList(db.Client, "ClientId", "FirstName", order.ClientId);
-            return View(order);
+            return View(occupation);
         }
 
-        // GET: Orders/Delete/5
+        // GET: Occupations/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Order order = db.Order.Find(id);
-            if (order == null)
+            Occupation occupation = db.Occupation.Find(id);
+            if (occupation == null)
             {
                 return HttpNotFound();
             }
-            return View(order);
+            return View(occupation);
         }
 
-        // POST: Orders/Delete/5
+        // POST: Occupations/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Order order = db.Order.Find(id);
-            db.Order.Remove(order);
+            Occupation occupation = db.Occupation.Find(id);
+            db.Occupation.Remove(occupation);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
