@@ -61,7 +61,12 @@
 * Microsoft.AspNet.Web.Optimization 1.1.3
   - 用來將 javascript, js 最小化 (minification) 與 打包 (bundling) 的工具
   - ASP.NET Optimization introduces a way to bundle and optimize CSS and JavaScript files.
+  - 專案位址: https://aspnetoptimization.codeplex.com/
+  - 官方文件: https://aspnetoptimization.codeplex.com/documentation
+  - NuGet 套件: https://www.nuget.org/packages/Microsoft.AspNet.Web.Optimization
   - 相關連結
+    * [Bundling and Minification | The ASP.NET Site](http://www.asp.net/mvc/overview/performance/bundling-and-minification)
+    * [c# - Bundler not including .min files - Stack Overflow](http://stackoverflow.com/questions/11980458/bundler-not-including-min-files)
     * [kenhaines.net | WebGrease: As seen in Visual Studio 2012](http://kenhaines.net/post/2012/06/09/WebGrease-As-seen-in-Visual-Studio-2012.aspx)
     * [Web Optimization in Visual Studio 2012 RC | Howard Dierking](http://codebetter.com/howarddierking/2012/06/04/web-optimization-in-visual-studio-2012-rc/)
 * Microsoft.Web.Infrastructure 1.0.0.0
