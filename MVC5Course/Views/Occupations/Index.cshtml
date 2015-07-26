@@ -1,5 +1,6 @@
 ﻿@model IEnumerable<MVC5Course.Models.Occupation>
-
+@using PagedList
+@using PagedList.Mvc
 @{
     ViewBag.Title = "Index";
 }
@@ -31,3 +32,9 @@
 }
 
 </table>
+
+@{
+    var data = Model as IPagedList;
+}
+
+@Html.PagedListPager(data, p => Url.Action("Index", new { p = p }))
