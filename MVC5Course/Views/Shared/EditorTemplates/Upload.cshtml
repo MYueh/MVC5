@@ -1,0 +1,7 @@
+﻿@model String
+
+<input type="file" name="@(Html.Name("") + "_File")" value="" />
+
+@*請勿寫成以下格式，因為欄位名稱會因為 Template 的關係變成 ImageUrl.ImageUrl_File*@
+@*@Html.TextBox(Html.Name("") + "_File", null, new { type = "file" })*@
+

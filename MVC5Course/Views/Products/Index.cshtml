@@ -30,6 +30,9 @@
         <th>
             @Html.DisplayNameFor(model => model.Stock)
         </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ImageUrl)
+        </th>
         <th></th>
     </tr>
     @{
@@ -50,6 +53,9 @@
         <td>
             @Html.EditorFor(modelItem => data[i].Stock)
             @Html.ValidationMessageFor(modelItem => data[i].Stock, "", new { @class = "text-danger" })
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ImageUrl)
         </td>
         <td>
             @Html.HiddenFor(modelItem => data[i].ProductId)

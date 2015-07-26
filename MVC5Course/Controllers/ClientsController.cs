@@ -27,17 +27,17 @@ namespace MVC5Course.Controllers
             var listGenders = new List<SelectListItem>();
             listGenders.Add(new SelectListItem() { Value = "M", Text = "男生" });
             listGenders.Add(new SelectListItem() { Value = "F", Text = "女生" });
-            ViewData["GenderFilter"] = new SelectList(listGenders, "Value", "Text");
+            ViewData["GenderFilterOptions"] = new SelectList(listGenders, "Value", "Text");
 
             // Step 1
             var client = db.Client.Include(c => c.Occupation);
 
-            if (keyword != null)
+            if (!String.IsNullOrEmpty(keyword))
             {
                 client = client.Where(s => s.FirstName.Contains(keyword));
             }
 
-            if (GenderFilter != null)
+            if (!String.IsNullOrEmpty(GenderFilter))
             {
                 client = client.Where(s => s.Gender == GenderFilter);
             }

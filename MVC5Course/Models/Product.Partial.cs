@@ -35,6 +35,10 @@ namespace MVC5Course.Models
         public Nullable<bool> Active { get; set; }
         [Required]
         public Nullable<decimal> Stock { get; set; }
+
+        [UIHint("ImageUrl")]
+        [DataType(DataType.Upload)]
+        public string ImageUrl { get; set; }
     
         public virtual ICollection<OrderLine> OrderLine { get; set; }
     }

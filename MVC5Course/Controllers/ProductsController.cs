@@ -115,12 +115,17 @@ namespace MVC5Course.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         //[ValidateInput(false)]
-        public ActionResult Edit(int ProductId, FormCollection form)
+        public ActionResult Edit(int ProductId,
+            HttpPostedFileBase ImageUrl_File, FormCollection form)
         {
             var product = repo.Find(ProductId);
 
             if (TryUpdateModel<Product>(product))
             {
+                string filePath = "~/Content/Upload/" + product.ProductId + ".jpg";
+                ImageUrl_File.SaveAs(Server.MapPath(filePath));
+
+                product.ImageUrl = Url.Content(filePath);
                 //db.Entry(product).State = EntityState.Modified;
                 //db.SaveChanges();
                 ((FabricsEntities)repo.UnitOfWork.Context).Entry(product).State = EntityState.Modified;

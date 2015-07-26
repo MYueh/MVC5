@@ -3,6 +3,10 @@
 @using PagedList.Mvc
 
 @{
+    if (IsAjax)
+    {
+        Layout = "";
+    }
     ViewBag.Title = "Index";
 }
 
@@ -11,8 +15,8 @@
 <div style="float: right">
 @using (Html.BeginForm("Index", "Clients", FormMethod.Get))
 {
-    @Html.DropDownList("GenderFilter", ViewData["GenderFilter"] as SelectList, new { onchange = "this.form.submit();" })
-    @Html.TextBox("keyword", null, new { placeholder = "搜尋關鍵字" })
+    @Html.DropDownList("GenderFilter", ViewData["GenderFilterOptions"] as SelectList, new { onchange = "this.form.submit();", @class = "" })
+    @Html.TextBox("keyword", null, new { placeholder = "搜尋關鍵字", @class = "" })
     <button type="submit">搜尋</button>
 }
 </div>
@@ -77,4 +81,5 @@
 }
 
 @Html.PagedListPager(data, 
-    (pageNo) => Url.Action("Index", new { p = pageNo, GenderFilter = Html.Value("GenderFilter"), keyword = Html.Value("keyword")}))
+    (pageNo) => Url.Action("Index", new { p = pageNo, GenderFilter = Html.Value("GenderFilter"), keyword = Html.Value("keyword")}),
+    PagedListRenderOptions.EnableUnobtrusiveAjaxReplacing("#Main"))
