@@ -24,7 +24,7 @@ namespace WebApiDemo.Controllers
         // GET: api/Products
         public IQueryable<Product> GetProduct()
         {
-            return db.Product;
+            return db.Product.Include("OrderLine").Take(5);
         }
 
         // GET: api/Products/5
